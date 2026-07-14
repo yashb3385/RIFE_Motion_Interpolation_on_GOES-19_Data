@@ -1,0 +1,65 @@
+{
+  "collapse-filter": true,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": true,
+  "showOrphans": true,
+  "collapse-color-groups": true,
+  "colorGroups": [
+    {
+      "query": "file:Machine Learning",
+      "color": {
+        "a": 1,
+        "rgb": 1573068
+      }
+    },
+    {
+      "query": "file:Feature Linear Regression",
+      "color": {
+        "a": 1,
+        "rgb": 14596877
+      }
+    },
+    {
+      "query": "file:Linear Regression",
+      "color": {
+        "a": 1,
+        "rgb": 14290398
+      }
+    },
+    {
+      "query": "file:Method",
+      "color": {
+        "a": 1,
+        "rgb": 908997
+      }
+    },
+    {
+      "query": "file:md",
+      "color": {
+        "a": 1,
+        "rgb": 885726
+      }
+    },
+    {
+      "query": "file:md",
+      "color": {
+        "a": 1,
+        "rgb": 885726
+      }
+    }
+  ],
+  "collapse-display": true,
+  "showArrow": true,
+  "textFadeMultiplier": -3,
+  "nodeSizeMultiplier": 3.03986843282914,
+  "lineSizeMultiplier": 5,
+  "collapse-forces": true,
+  "centerStrength": 0.21623556788687,
+  "repelStrength": 14.3374203040706,
+  "linkStrength": 1,
+  "linkDistance": 327,
+  "scale": 0.3451002688987235,
+  "close": true
+}

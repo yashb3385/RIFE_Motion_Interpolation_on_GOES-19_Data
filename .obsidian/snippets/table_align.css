@@ -1,0 +1,10 @@
+/* Center tables on the page */
+.markdown-preview-view table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* This might be needed for some themes or Live Preview */
+table, .table-wrapper {
+  margin-inline: auto;
+}

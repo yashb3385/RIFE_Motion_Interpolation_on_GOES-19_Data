@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "df282949eb421be8",
+    "type": "split",
+    "children": [
+      {
+        "id": "24207c2a4ebfab33",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4c019d2e7029c66d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4.Motion Interpolator/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "0f6bd6ece2ebcb11",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7d6f8f6b30f53a6e",
+    "type": "split",
+    "children": [
+      {
+        "id": "296918f8466cbd2e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "555ee7aba66c6e12",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "952587f743b30c38",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#snippet",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "7792d59de408bb47",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "76071edc70b0c2b3",
+    "type": "split",
+    "children": [
+      {
+        "id": "51b3d450a80db3cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70cccef285603241",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "e799d298dc0ae7c7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "ec90a84fa9eed612",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "97fd4c1775885a67",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "aaa922e0a9227862",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "graph:Open graph view": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "4c019d2e7029c66d",
+  "lastOpenFiles": [
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/final_C13_2X_30fps_s20250010000_e20250021150.mp4",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/original_C13_15fps_s20250010000_e20250021150.mp4",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000430.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000429.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000428.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000427.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000426.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000425.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000424.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000423.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000422.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000421.png",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/final_C13_4X_12fps_s20250010000_e20250021150.mp4",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/1.input/input2/15fps.mp4",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/final_C13_2X_6fps_s20250010000_e20250021150.mp4",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/README.md",
+    "4.Motion Interpolator/README.md",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/final_RGB_16X_32fps_s20250010000_e20250012350.mp4",
+    "4.Motion Interpolator/images/jpg",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/images",
+    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/README.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.3.Searching_in_BST",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.3.Searching_in_BST.c",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/10.searching_BST.c",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.0 Intro & Types/DS15.1.0-Binary Trees.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.2-Searching in BST.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.0-Binary Search Trees.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.2 Traversal/DS15.1.2.4-BT Traversal Short Trick.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.2 Traversal/DS15.1.2.0-Binary Tree Traversal.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.2 Traversal/DS15.1.2.3-Postorder Traversal.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.2 Traversal/DS15.1.2.2-Preorder Traversal.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.2 Traversal/DS15.1.2.1-Inorder Traversal.md",
+    "07. Linear Vs Binary/DS7.0-Linear vs Binary Searching.md",
+    "15. Trees/DS15.1 Binary Trees/DS15.1.1 Representation/DS15.1.1.0-Representation of BT.md",
+    "15. Trees/DS15.0 Introduction/DS15.0-Introduction to Trees.md",
+    "02. Time Complexity & Big O Notation/DS2.0-Time Complexity & Big O notation.md",
+    "14. Sorting Algorithms/DS14.6 Count Sort/DS14.6.0 Count Sort.md",
+    "14. Sorting Algorithms/DS14.5 Merge Sort/DS14.5.0-Merge Sort.md",
+    "14. Sorting Algorithms/DS14.4 Quick Sort/DS14.4.0-Quick Sort.md",
+    "14. Sorting Algorithms/DS14.3 Selection Sort/DS14.3.0-Selection Sort.md",
+    "14. Sorting Algorithms/DS14.2 Insertion Sort/DS14.2.0-Insertion Sort.md",
+    "14. Sorting Algorithms/DS14.1 Bubble Sort/DS14.1.0-Bubble Sort.md",
+    "14. Sorting Algorithms/DS14.0 Criteria for Sorting Algorithms/DS14.0-Criteria for Sorting Algorithms.md",
+    "14. Sorting Algorithms/DS14.9-Selection Sort.md",
+    "14. Sorting Algorithms/DS14.6-Insertion Sort.md",
+    "14. Sorting Algorithms/DS14.3-Bubble Sort.md",
+    "Note Taking Methods/My Canva.canvas",
+    "Untitled.canvas"
+  ]
+}

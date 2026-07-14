@@ -1,0 +1,12 @@
+{
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "root",
+  "attachmentFolderPath": "./",
+  "pdfExportSettings": {
+    "includeName": false,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
+}
