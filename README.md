@@ -67,6 +67,7 @@ This project utilizes satellite imagery obtained from the ***NOAA GOES-19*** AWS
 ---
 *   **Execution Order** → All Python scripts are prefixed with a number (e.g., `1.xyz.py`, `2.xyz.py`). It will be preferable to execute them in ascending numerical order.
 <br>
+
 *   **Utility Scripts** → Every folder contains a `download.py` and a `delete.py` (specifically input folders) to manage fetching necessary input data and cleaning up outputs.
 ## 📂 Repository Structure
 ---
