@@ -1,4 +1,4 @@
-# Fill in the Frames Seamlessly - Enhancing Temporal Resolution of Satellite Imagery using AI/ML
+# Enhancing Temporal Resolution of Satellite Imagery using Motion Interpolation
 ---
 ## Introduction
 ---
