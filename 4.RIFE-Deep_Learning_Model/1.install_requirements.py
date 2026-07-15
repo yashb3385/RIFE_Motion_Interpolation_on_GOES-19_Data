@@ -87,6 +87,6 @@ print("\n---------------------------------------------------------------------\n
 
 subprocess.run("winget install curl.curl", shell=True, cwd=user_profile)
 subprocess.run("winget install Gyan.FFmpeg", shell=True, cwd=user_profile)
-subprocess.run("pip install netCDF4 matplotlib requests", shell=True, cwd=user_profile)
+subprocess.run("pip install netCDF4 matplotlib requests xarray opencv-python", shell=True, cwd=user_profile)
 subprocess.run("pip310 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121", shell=True, cwd=rife_path)
 subprocess.run("pip310 install -r requirements.txt", shell=True, cwd=rife_path)
