@@ -2,7 +2,7 @@ import subprocess
 import zipfile
 import os
 
-git_file_path = "yashb3385/Data_Samples/main/15fps_moving_car/video/15fps.mp4"
+git_file_path = "yashb3385/Data_Samples/main/moving_car/video/15fps.mp4"
 file = os.path.basename(git_file_path)
 destination = '.'
 
