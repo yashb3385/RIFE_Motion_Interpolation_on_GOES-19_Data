@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-git_dir = "yashb3385/Data_Samples/main/15fps_moving_car/frames/"
+git_dir = "yashb3385/Data_Samples/main/moving_car/frames/"
 file = os.path.basename(git_dir)
 destination = '.'
 
