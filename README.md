@@ -11,34 +11,63 @@ This project develops and uses an AI/ML-based Optical Flow frame interpolation t
 ---
 ### GOES-19 ABI Channel 13 data from NOAA GOES-19 AWS bucket
 - [NOAA-GOES-19 Link](https://noaa-goes19.s3.amazonaws.com/index.html)
-$\hspace{1cm}$
+
 - [NOAA-GOES-19 ABI-L1b-RadF Link](https://noaa-goes19.s3.amazonaws.com/index.html#ABI-L1b-RadF/)
-### INSAT-3DS/3DR TIR1 channel data from mosdac
+### INSAT-3DS/3DR TIR1 channel data from MOSDAC
 - [INSAT-3DR Link](https://mosdac.gov.in/catalog-app/satellite?mission=INSAT-3DR)
-$\hspace{1cm}$
+
 - [INSAT-3DS Link](https://mosdac.gov.in/catalog-app/satellite?mission=INSAT-3DS)
 ## Dataset Used
 ---
 This project utilizes satellite imagery obtained from the ***NOAA GOES-19*** AWS bucket ([NOAA-GOES-19 ABI-L1b-RadF](https://noaa-goes19.s3.amazonaws.com/index.html#ABI-L1b-RadF/)). The data utilized includes: 
-$\hspace{1cm}$
-* **True-Color RGB Composition** $\boldsymbol{\to}$ Constructed using Channels 1, 2, and 3: 
-	1. *Blue* : Channel 1 
-	2. *Red* : Channel 2 
-	3. *Green* : Channel 3 
-$\hspace{1cm}$
-* **Thermal Imaging** $\boldsymbol{\to}$ Derived from *Channel 13*, which actually contains ***Thermal Infrared band data*** (~10 $\mu m$).
-## Results
----
+### File Nomenclature
+  The data files follow a highly structured naming convention, which enables efficient programmatic filtering and retrieval.
 
-|     Original<br>![original_RGB_2fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps.gif)     |  2X Interpolation<br>![final_RGB_2X_4fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/final_RGB_2X_4fps.gif)  |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| 4X Interpolation<br>![final_RGB_4X_8fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/final_RGB_4X_8fps.gif) | 8X Interpolation<br>![final_RGB_8X_16fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps.gif) |
+**Example Filename :**
+`OR_ABI-L1b-RadF-M6C13_G19_s20221311900320_e20221311903397_c20221311903433.nc`
+
+|   **Component**    | **Description**                                              |
+| :----------------: | :----------------------------------------------------------- |
+|      ***OR***      | Data classification: Operational                             |
+| ***ABI-L1b-RadF*** | Instrument & Product Level <br>(ABI L1b Radiance, Full Disk) |
+|    ***M6C13***     | Mode 6, Channel 13                                           |
+|     ***G19***      | Satellite: GOES-19                                           |
+| ***s[timestamp]*** | Start time (YYYYDDDHHMMSS)                                   |
+| ***e[timestamp]*** | End time                                                     |
+| ***c[timestamp]*** | File creation time                                           |
+### Channels Used in This Project
+* **True-Color RGB Composition** → Constructed using Channels 1, 2, and 3: 
+
+| **Channels** | **Specification**             |
+| ------------ | ----------------------------- |
+| Channel 1    | Contains *Blue* composition.  |
+| Channel 2    | Contains *Red* composition.   |
+| Channel 3    | Contains *Green* composition. |
+
+* **Thermal Imaging** → Derived from *Channel 13*, which actually contains ***Thermal Infrared band data*** (~10 $\mu m$).
+## Results of Project
+---
+#### Moving Car
+
+| [Original]([https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/moving_car/video/10fps.mp4](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/moving_car/video/10fps.mp4))<br>![](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/moving_car/video/10fps.gif) | [4X Interpolation](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/moving_car/video/final_4X_40fps.mp4)<br>![](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/moving_car/video/final_2X_20fps.gif) |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+#### Heatmap Composition
+
+| [Original](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/C13_Heatmap/original_C13_3fps_s20250010000_e20250021150.mp4)<br>![original](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/C13_Heatmap/original_C13_3fps_s20250010000_e20250021150.gif) | [8X Interpolation](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/C13_Heatmap/final_C13_8X_24fps_s20250010000_e20250021150.mp4)<br>![](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/C13_Heatmap/final_C13_8X_24fps_s20250010000_e20250021150.gif) |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+#### RGB Composition
+
+| [Original](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps_s20250010000_e20250012350.mp4)<br>![original_RGB_2fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps.gif) | [8X Interpolation](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps_s20250010000_e20250012350.mp4)<br>![final_RGB_2X_4fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps.gif) |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
 
 ## 📂 Repository Usage Guide
 ---
-*   **Execution Order** $\boldsymbol{\to}$ All Python scripts are prefixed with a number (e.g., `1.xyz.py`, `2.xyz.py`). It will be preferable to execute them in ascending numerical order.
-$\hspace{1cm}$
-*   **Utility Scripts** $\boldsymbol{\to}$ Every folder contains a `download.py` and a `delete.py` (specially input folders) to manage fetching necessary input data and cleaning up outputs.
+*   **Execution Order** → All Python scripts are prefixed with a number (e.g., `1.xyz.py`, `2.xyz.py`). It will be preferable to execute them in ascending numerical order.
+<br>
+*   **Utility Scripts** → Every folder contains a `download.py` and a `delete.py` (specifically input folders) to manage fetching necessary input data and cleaning up outputs.
 ## 📂 Repository Structure
 ---
 ### 1.rgb_images
@@ -50,39 +79,42 @@ Contains scripts dedicated to downloading and processing GOES-19 Channel 13 data
 ### 3.intermediate_frame_using_average
 This section documents early experiments exploring mathematical averaging as a baseline for frame interpolation, which ultimately proves why Deep Learning is necessary.
 
-*   **`1.average`** $\boldsymbol{\to}$ Creates an intermediate image by averaging two C13 `.nc` files (e.g., 20:00 and 20:20). Comparing this average to the *actual* 20:10 real `.nc` file proved that simple averaging creates a messy, overlapping "**double vision**" effect rather than capturing true fluid motion.
-$\hspace{1cm}$
-*   **`2.average_can_be_bad`** $\boldsymbol{\to}$ Contains real-world examples (`sample1` with displacing static tables, `sample2` with a moving car) demonstrating the severe visual artifacts caused by standard averaging.
-$\hspace{1cm}$
-*   **`3.average_on_video`** $\boldsymbol{\to}$ Applies averaging to a video of a moving car, showing that inserting averaged intermediate frames severely degrades video quality by **overlapping double vision frames**.
+*   **`1.average`** → Creates an intermediate image by averaging two C13 `.nc` files (e.g., 20:00 and 20:20). Comparing this average to the *actual* 20:10 real `.nc` file proved that simple averaging creates a messy, overlapping "**double vision**" effect rather than capturing true fluid motion.
 
->***Note*** $\boldsymbol{\to}$ The above folders are provided for **educational purposes** only and have no functional connection to the actual deep learning interpolation model (*4.RIFE-Deep_Learning_Model*).
+*   **`2.average_can_be_bad`** → Contains real-world examples (`sample1` with displacing static tables, `sample2` with a moving car) demonstrating the severe visual artifacts caused by standard averaging.
+
+*   **`3.average_on_video`** → Applies averaging to a video of a moving car, showing that inserting averaged intermediate frames severely degrades video quality by **overlapping double vision frames**.
+
+>***Note*** → The above folders are provided for **educational purposes** only and have no functional connection to the actual deep learning interpolation model (*4.RIFE-Deep_Learning_Model*).
 ## Deep Learning Interpolation (4.RIFE-Deep_Learning_Model)
 ---
 
 This directory contains the core solution of the project : the prebuilt [**ECCV2022-RIFE**](https://github.com/hzwer/ECCV2022-RIFE) deep learning model developed by [hzwer](https://github.com/hzwer). RIFE (***Real-Time Intermediate Flow Estimation***) accurately calculates optical flow to synthesize completely new, physically plausible frames between satellite captures. Here is Step-by-Step Execution:
 ### 1. Setup and Installation
-Execute **1.install_requirements.py** to download and install all necessary dependencies, weights, and libraries for the RIFE model. 
+Execute **1.install_requirements.py** after cloning the repository to download and install all necessary dependencies, weights, and libraries for the RIFE model. 
 ```bash
+git clone https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data.git
+cd RIFE_Motion_Interpolation_on_GOES-19_Data/4.RIFE-Deep_Learning_Model
 python 1.install_requirements.py
 ```
 
->**Note** $\boldsymbol{\to}$ This installation is heavy and will consume approximately ***10 GB*** of disk space. This will install ***Python 3.10*** as virtual environment all heavy packages will be installed for Python 3.10.
+>**Note** → This installation is heavy and will consume approximately ***10 GB*** of disk space. This will install ***Python 3.10*** as a virtual environment all heavy packages will be installed for Python 3.10.
 ### 2. Preparing the Input Data
 Before running the model, you must place your data into the input directories located at `1.input/input1`, `1.input/input2`, etc. The RIFE model pipeline is highly versatile and accepts:
-*   Standard image frames (`.png`)
+
+*   Standard image frames in ordered numerical names (`000.png, 001.png, 002.png, etc.`)
 *   Video files (`.mp4`)
 *   Raw satellite data (`.nc` files) in their respective channel folders.
 
-> ***Note*** $\boldsymbol\to$ All input folders contain `1.download.py` and `2.delete.py` to download sample input data except `1.input/input4` as it contains scripts `1.download.py` and `2.delete.py` to download and clean **actual GOES-19 data**.
+> ***Note*** → All input folders contain `1.download.py` and `2.delete.py` to download sample input data except `1.input/input4` as it contains scripts `1.download.py` and `2.delete.py` to download and clean **actual GOES-19 data**.
 
 **Handling `.nc` Files :**
 
 - You can place raw `.nc` files inside their respective `C{i}` Channel Folders (e.g.`C01, C03, C13,etc.`) within the input directories. 
-$\hspace{1cm}$
+
 - For convenience, you can *automatically download* required `.nc` files directly into `1.input/input4` using the included `1.download.py` utility.
-$\hspace{1cm}$
-- **`2.delete.py`** $\boldsymbol{\to}$ Safely deletes the all channel folders where your `.nc` files in your input directory. This file must be placed in the input directory. You can find it in `1.input/input4`.
+
+- **`2.delete.py`** → Safely deletes the all channel folders where your `.nc` files in your input directory. This file must be placed in the input directory. You can find it in `1.input/input4`.
 ### 3. Executing the Interpolation Model
 Once your inputs are staged, run:
 ```bash
@@ -91,14 +123,14 @@ python 2.executer.py
 ### 4. Managing Storage & Cleanup
 Because satellite data and model dependencies take up significant space, robust cleanup tools are provided:
 
-- **`2.delete.py`** $\boldsymbol{\to}$ Safely deletes the all channel folders where your `.nc` files in your input directory. This file must be placed in the input directory. You can find it in `1.input/input4`.
-$\hspace{1cm}$
-- **`3.delete_output.py`** $\boldsymbol{\to}$ Interactively clears generated experiment results. When executed, this script provides custom prompts allowing you to selectively delete `img_output` folders (including any associated `Native` directories), `video_output` folders, or both. This enables you to preserve specific results while clearing unnecessary files.
-$\hspace{1cm}$
-- **`4.delete_requirements.py`** $\boldsymbol{\to}$ Completely uninstalls all requirements and model dependencies (***reclaiming ~10 GB of storage***) when you are finished working.
+- **`2.delete.py`** → Safely deletes the all channel folders where your `.nc` files in your input directory. This file must be placed in the input directory. You can find it in `1.input/input4`.
+
+- **`3.delete_output.py`** → Interactively clears generated experiment results. When executed, this script provides custom prompts allowing you to selectively delete `img_output` folders (including any associated `Native` directories), `video_output` folders, or both. This enables you to preserve specific results while clearing unnecessary files.
+
+- **`4.delete_requirements.py`** → Completely uninstalls all requirements and model dependencies (***reclaiming ~10 GB of storage***) when you are finished working.
   
 ```bash
 python 4.delete_requirements.py
 ```
 
-> ***Note*** $\boldsymbol{\to}$ Don't worry about executing this file, this won't delete anything from your main python. Only **Python 3.10** will deleted alongside its **packages**.
+> ***Note*** → Don't worry about executing this file, this won't delete anything from your main python. Only **Python 3.10** will be deleted alongside its **packages**.

@@ -13,21 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4.Motion Interpolator/README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "0f6bd6ece2ebcb11",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/README.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
@@ -197,6 +183,12 @@
   },
   "active": "4c019d2e7029c66d",
   "lastOpenFiles": [
+    "README.md",
+    "4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/README.md",
+    "4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/15fps_8X_120fps.mp4",
+    "4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/15fps_4X_60fps_noaudio.mp4",
+    "4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/temp/audio.mkv",
+    "4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/temp",
     "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/final_C13_2X_30fps_s20250010000_e20250021150.mp4",
     "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/original_C13_15fps_s20250010000_e20250021150.mp4",
     "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000430.png",
@@ -215,12 +207,7 @@
     "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/README.md",
     "4.Motion Interpolator/README.md",
     "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/2.output/output4/video_output/final_RGB_16X_32fps_s20250010000_e20250012350.mp4",
-    "4.Motion Interpolator/images/jpg",
-    "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/images",
     "4.Motion Interpolator/4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/README.md",
-    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.3.Searching_in_BST",
-    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.3.Searching_in_BST.c",
-    "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/10.searching_BST.c",
     "15. Trees/DS15.1 Binary Trees/DS15.1.0 Intro & Types/DS15.1.0-Binary Trees.md",
     "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.2-Searching in BST.md",
     "15. Trees/DS15.1 Binary Trees/DS15.1.3 Binary Search Trees/DS15.1.3.0-Binary Search Trees.md",
@@ -242,7 +229,6 @@
     "14. Sorting Algorithms/DS14.0 Criteria for Sorting Algorithms/DS14.0-Criteria for Sorting Algorithms.md",
     "14. Sorting Algorithms/DS14.9-Selection Sort.md",
     "14. Sorting Algorithms/DS14.6-Insertion Sort.md",
-    "14. Sorting Algorithms/DS14.3-Bubble Sort.md",
     "Note Taking Methods/My Canva.canvas",
     "Untitled.canvas"
   ]

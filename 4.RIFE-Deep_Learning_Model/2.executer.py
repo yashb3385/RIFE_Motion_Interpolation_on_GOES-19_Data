@@ -41,12 +41,16 @@ import cv2
 import re
 import glob
 from pathlib import Path
+from matplotlib.colors import LinearSegmentedColormap
 
 ############################################################################################################################################################################
 
 rife_path = "ECCV2022-RIFE"
-c_map = "RdYlBu_r"
 nc_img_max_size = 1500 
+c_map = "RdYlBu_r"
+blue_cmap = LinearSegmentedColormap.from_list("black_blue", ["black", "blue"])
+green_cmap = LinearSegmentedColormap.from_list("black_green", ["black", "green"])
+red_cmap = LinearSegmentedColormap.from_list("black_red", ["black", "red"])
 
 # Note on 'cmap': 
 # 'gray' provides normal grayscale.
@@ -263,7 +267,7 @@ def nc_imager(input_dir, output_dir, color_map, img_max_pixel, rgb_flag, chnl):
                 return
         else:
             target_channel = ch_input
-    elif chnl != None:
+    elif chnl != None and chnl != "RGB_":
         target_channel = f"C{chnl}"
                 
     if process_mode == "RGB":
@@ -303,8 +307,16 @@ def nc_imager(input_dir, output_dir, color_map, img_max_pixel, rgb_flag, chnl):
         
         if process_mode == "RGB":
             rgb_img_creater(timestamp_groups[ts], output_image_path, img_max_pixel)
-        else:
+        elif target_channel == 'C01':
+            single_channel_img_creater(timestamp_groups[ts][target_channel], output_image_path, blue_cmap, img_max_pixel)
+        elif target_channel == 'C02':
+            single_channel_img_creater(timestamp_groups[ts][target_channel], output_image_path, red_cmap, img_max_pixel)
+        elif target_channel == 'C03':
+            single_channel_img_creater(timestamp_groups[ts][target_channel], output_image_path, green_cmap, img_max_pixel)
+        elif target_channel == 'C13':
             single_channel_img_creater(timestamp_groups[ts][target_channel], output_image_path, color_map, img_max_pixel)
+        else:
+            single_channel_img_creater(timestamp_groups[ts][target_channel], output_image_path, None, img_max_pixel)
         frame_counter += 1
     print("\nImage Extraction Completed.")
     return user_choice, target_channel, data_time
@@ -408,7 +420,8 @@ def execute(path, gpu_flag):
     elif my_entries[0].lower().endswith(".mp4"):
         mp4_flag = 1
 
-    n = int(input("\nFor 2\u207fX Interpolation, Enter the value of n : "))
+    # n = int(input("\nFor 2\u207fX Interpolation, Enter the value of n : "))
+    n_list = [int(x) for x in input("\nFor 2\u207fX Interpolation, Enter the values of n separated by spaces : ").split()]
     img_output_flag = ask_y_n("\nInterpolated image output will consume significant amount of space :\n     -> Do you want to generate image output [y/n] : ")
 
     if "input" in path:
@@ -428,7 +441,7 @@ def execute(path, gpu_flag):
             print("\n===============================================================================================================\n") # Extracting Images from .nc files....\n\n")
             RGB_flag, channel_ad, data_time_s_to_e = nc_imager(path, f"{rife_path}/input", c_map, nc_img_max_size, None, None)
             if channel_ad == "RGB_":
-                channel = channel_ad
+                channel_no = channel_ad
             else:
                 channel_no = channel_ad[1:3]
                 channel = f"C{channel_no}_"
@@ -436,24 +449,28 @@ def execute(path, gpu_flag):
                 nc_imager(path,f"2.output/output{input_pointer}/Native_{channel}Images{data_time_s_to_e}" ,c_map, float('inf'), RGB_flag, channel_no)
 
         elif png_flag == 1:
+            data_time_s_to_e = ""
             for filename in my_entries:
                 if os.path.isfile(os.path.join(path, filename)):
                     shutil.copy2(f"{path}/{filename}", f"{rife_path}/input")
 
-        print("\n===============================================================================================================\n\nLoading the Model...\n")
-        if gpu_flag == 'y':
-            subprocess.run(f"py310 inference_video.py --exp={n} --img=input/", shell=True, cwd=rife_path)
-        else:
-            subprocess.run(f"py inference_video.py --exp={n} --img=input/", shell=True, cwd=rife_path)
-        print("\n->Video Inferencing Completed.\n\n===============================================================================================================\n")
+        print("\n===============================================================================================================\n")
+        for n in n_list:
+            print(f"Initiating {2**n}X Interpolation...\n\nLoading the Model...\n")
+            if gpu_flag == 'y':
+                subprocess.run(f"py310 inference_video.py --exp={n} --img=input/", shell=True, cwd=rife_path)
+            else:
+                subprocess.run(f"py inference_video.py --exp={n} --img=input/", shell=True, cwd=rife_path)
 
-        img_to_video(f"{rife_path}/input", f"{vid_output_path}/original_{channel}{int(fps)}fps{data_time_s_to_e}.mp4", int(fps))
-        img_to_video(f"{rife_path}/vid_out", f"{vid_output_path}/final_{channel}{2**n}X_{int((2**n)*fps)}fps{data_time_s_to_e}.mp4", int((2**n)*fps))
+            print(f"\n->Video Inferencing Completed for {2**n}X Interpolation.\n\n===============================================================================================================\n")
 
-        if img_output_flag == 'y':
-            print("\n")
-            for img in os.listdir(f"{rife_path}/vid_out"):
-                move(f"{rife_path}/vid_out/{img}", f"{img_output_path}/{channel}{int(fps)}fps_to_{int((2**n)*fps)}fps_{2**n}X{data_time_s_to_e}")
+            img_to_video(f"{rife_path}/input", f"{vid_output_path}/original_{channel}{int(fps)}fps{data_time_s_to_e}.mp4", int(fps))
+            img_to_video(f"{rife_path}/vid_out", f"{vid_output_path}/final_{channel}{2**n}X_{int((2**n)*fps)}fps{data_time_s_to_e}.mp4", int((2**n)*fps))
+
+            if img_output_flag == 'y':
+                print("\n")
+                for img in os.listdir(f"{rife_path}/vid_out"):
+                    move(f"{rife_path}/vid_out/{img}", f"{img_output_path}/{channel}{int(fps)}fps_to_{int((2**n)*fps)}fps_{2**n}X{data_time_s_to_e}")
 
     if mp4_flag == 1:
         for video in my_entries:
@@ -470,13 +487,16 @@ def execute(path, gpu_flag):
                 fps = int(vid.get(cv2.CAP_PROP_FPS))
                 vid.release()
 
-                print("\n===============================================================================================================\n\nLoading the Model...\n")
-                if gpu_flag == 'y':
-                    subprocess.run(f"py310 inference_video.py --exp={n} --video={video} --scale={scale}", shell=True, cwd=rife_path)
-                else:
-                    subprocess.run(f"py inference_video.py --exp={n} --video={video} --scale={scale}", shell=True, cwd=rife_path)
+                print("\n===============================================================================================================\n")
+                for n in n_list:
+                    print(f"Initiating {2**n}X Interpolation...\n\nLoading the Model...\n")
+                    if gpu_flag == 'y':
+                        subprocess.run(f"py310 inference_video.py --exp={n} --video={video} --scale={scale}", shell=True, cwd=rife_path)
+                    else:
+                        subprocess.run(f"py inference_video.py --exp={n} --video={video} --scale={scale}", shell=True, cwd=rife_path)
+                    
+                    print(f"\n->Video Inferencing Completed for {2**n}X Interpolation.\n\n===============================================================================================================\n")
                 os.remove(f"{rife_path}/{video}")
-                print("\n->Video Inferencing Completed.\n\n===============================================================================================================\n")
 
         for file in os.listdir(f"{rife_path}"):
             if os.path.isfile(os.path.join(f"{rife_path}", file)) and file.lower().endswith('.mp4'):
