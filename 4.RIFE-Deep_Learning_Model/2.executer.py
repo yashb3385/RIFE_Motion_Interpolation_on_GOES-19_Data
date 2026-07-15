@@ -435,6 +435,7 @@ def execute(path, gpu_flag):
     vid_output_path = f"2.output/output{input_pointer}/video_output"
     channel = ""
 
+    scale = 1
     if nc_flag == 1 or png_flag == 1:
         fps = int(input("\nWhat FPS do you want the original video to be (1, 15, 24, 30, 60, ...) ? \n     -> Enter : "))
         if nc_flag == 1:
@@ -450,6 +451,17 @@ def execute(path, gpu_flag):
 
         elif png_flag == 1:
             data_time_s_to_e = ""
+
+            downscale_flag = ask_y_n("\nFor High Resolution videos, scaling down is recommended\n     -> Do you want to scale down the final video [y/n] : ")
+
+            if downscale_flag == 'y':
+                scale = float(input("   Enter scale value [0.25, 0.5, 1.0, 2.0, 4.0] : "))
+                if scale in [0.25, 0.5, 1.0, 2.0, 4.0]:
+                    pass
+                else:
+                    print("Scale value must be in [0.25, 0.5, 1.0, 2.0, 4.0].")
+                    return
+
             for filename in my_entries:
                 if os.path.isfile(os.path.join(path, filename)):
                     shutil.copy2(f"{path}/{filename}", f"{rife_path}/input")
@@ -458,9 +470,9 @@ def execute(path, gpu_flag):
         for n in n_list:
             print(f"Initiating {2**n}X Interpolation...\n\nLoading the Model...\n")
             if gpu_flag == 'y':
-                subprocess.run(f"py310 inference_video.py --exp={n} --img=input/", shell=True, cwd=rife_path)
+                subprocess.run(f"py310 inference_video.py --exp={n} --img=input/ --scale={scale}", shell=True, cwd=rife_path)
             else:
-                subprocess.run(f"py inference_video.py --exp={n} --img=input/", shell=True, cwd=rife_path)
+                subprocess.run(f"py inference_video.py --exp={n} --img=input/ --scale={scale}", shell=True, cwd=rife_path)
 
             print(f"\n->Video Inferencing Completed for {2**n}X Interpolation.\n\n===============================================================================================================\n")
 
@@ -475,12 +487,16 @@ def execute(path, gpu_flag):
     if mp4_flag == 1:
         for video in my_entries:
             if os.path.isfile(os.path.join(path, video)):
-                scale = 1
 
                 downscale_flag = ask_y_n("\nFor High Resolution videos, scaling down is recommended\n     -> Do you want to scale down the final video [y/n] : ")
 
                 if downscale_flag == 'y':
-                    scale = float(input("   Enter scale value [0 to 1] : "))
+                    scale = float(input("   Enter scale value [0.25, 0.5, 1.0, 2.0, 4.0] : "))
+                    if scale in [0.25, 0.5, 1.0, 2.0, 4.0]:
+                        pass
+                    else:
+                        print("Scale value must be in [0.25, 0.5, 1.0, 2.0, 4.0].")
+                        return
                 shutil.copy2(f"{path}/{video}", f"{rife_path}")
 
                 vid = cv2.VideoCapture(f"{rife_path}/{video}")
