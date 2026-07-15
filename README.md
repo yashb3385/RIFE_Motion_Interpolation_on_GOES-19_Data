@@ -24,7 +24,9 @@ This project utilizes satellite imagery obtained from the ***NOAA GOES-19*** AWS
   The data files follow a highly structured naming convention, which enables efficient programmatic filtering and retrieval.
 
 **Example Filename :**
+
 `OR_ABI-L1b-RadF-M6C13_G19_s20221311900320_e20221311903397_c20221311903433.nc`
+<br>
 
 |   **Component**    | **Description**                                              |
 | :----------------: | :----------------------------------------------------------- |
@@ -35,16 +37,22 @@ This project utilizes satellite imagery obtained from the ***NOAA GOES-19*** AWS
 | ***s[timestamp]*** | Start time (YYYYDDDHHMMSS)                                   |
 | ***e[timestamp]*** | End time                                                     |
 | ***c[timestamp]*** | File creation time                                           |
+<br>
+
 ### Channels Used in This Project
 * **True-Color RGB Composition** → Constructed using Channels 1, 2, and 3: 
+<br>
 
 | **Channels** | **Specification**             |
 | ------------ | ----------------------------- |
 | Channel 1    | Contains *Blue* composition.  |
 | Channel 2    | Contains *Red* composition.   |
 | Channel 3    | Contains *Green* composition. |
+<br>
 
 * **Thermal Imaging** → Derived from *Channel 13*, which actually contains ***Thermal Infrared band data*** (~10 $\mu m$).
+<br>
+
 ## Results of Project
 ---
 #### Moving Car
@@ -89,15 +97,17 @@ This section documents early experiments exploring mathematical averaging as a b
 >***Note*** → The above folders are provided for **educational purposes** only and have no functional connection to the actual deep learning interpolation model (*4.RIFE-Deep_Learning_Model*).
 ## Deep Learning Interpolation (4.RIFE-Deep_Learning_Model)
 ---
-
 This directory contains the core solution of the project : the prebuilt [**ECCV2022-RIFE**](https://github.com/hzwer/ECCV2022-RIFE) deep learning model developed by [hzwer](https://github.com/hzwer). RIFE (***Real-Time Intermediate Flow Estimation***) accurately calculates optical flow to synthesize completely new, physically plausible frames between satellite captures. Here is Step-by-Step Execution:
 ### 1. Setup and Installation
 Execute **1.install_requirements.py** after cloning the repository to download and install all necessary dependencies, weights, and libraries for the RIFE model. 
+<br>
+
 ```bash
 git clone https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data.git
 cd RIFE_Motion_Interpolation_on_GOES-19_Data/4.RIFE-Deep_Learning_Model
 python 1.install_requirements.py
 ```
+<br>
 
 >**Note** → This installation is heavy and will consume approximately ***10 GB*** of disk space. This will install ***Python 3.10*** as a virtual environment all heavy packages will be installed for Python 3.10.
 ### 2. Preparing the Input Data
@@ -108,6 +118,7 @@ Before running the model, you must place your data into the input directories lo
 *   Raw satellite data (`.nc` files) in their respective channel folders.
 
 > ***Note*** → All input folders contain `1.download.py` and `2.delete.py` to download sample input data except `1.input/input4` as it contains scripts `1.download.py` and `2.delete.py` to download and clean **actual GOES-19 data**.
+<br>
 
 **Handling `.nc` Files :**
 
