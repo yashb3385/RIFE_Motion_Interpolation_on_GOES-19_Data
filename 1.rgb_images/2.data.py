@@ -15,15 +15,12 @@ def nc_reader(file):
     print(ds)
 
     # For GOES-19/INSAT, the data is usually stored under the variable name 'Rad'
-    # You can verify the exact name by looking at the print(ds) output
     try:
         rad_data = ds['Rad']
         print("\n\n--------- Variable Info --------------------------------------------------------------------------------------------\n\n")
         print(f"Shape: {rad_data.shape}")
         print(f"Coordinates: {rad_data.coords}")
         
-        # 4. Extract data as a numpy array for your AI model
-        # The .values attribute converts the xarray DataArray to a raw numpy array
         data_array = rad_data.values
         print(f"\nSuccessfully extracted data with shape: {data_array.shape}\n\n\n")
 

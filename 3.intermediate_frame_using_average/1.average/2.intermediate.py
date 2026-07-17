@@ -1,12 +1,10 @@
 import xarray as xr
 
-# 1. Define paths to your two consecutive snapshots
 file_frame_a = "input/OR_ABI-L1b-RadF-M6C13_G19_s20242842000203_e20242842009523_c20242842009570.nc"  # Time T
 file_frame_b = "input/OR_ABI-L1b-RadF-M6C13_G19_s20242842020203_e20242842029523_c20242842029562.nc"  # Time T + 10 mins
 output_interp_file = "output/OR_ABI-L1b-RadF-M6C13_G19_s20242842010000_intr.nc"               # Target synthesized frame
 
 print("\nLoading original NetCDF files...")
-# Open datasets using xarray
 ds_a = xr.open_dataset(file_frame_a, engine="netcdf4")
 ds_b = xr.open_dataset(file_frame_b, engine="netcdf4")
 
@@ -32,13 +30,13 @@ t_b = ds_b['t'].values
 midpoint_timestamp = t_a + (t_b - t_a) / 2
 print(f"Frame A Time: {t_a}")
 print(f"Frame B Time: {t_b}")
-print(f"Synthesized Midpoint Time: {midpoint_timestamp}")
+print(f"Synthesized Midpoint Time : {midpoint_timestamp}")
 
 # Assign the updated timestamp coordinate back into the new dataset template
 ds_intermediate = ds_intermediate.assign_coords(t=midpoint_timestamp)
 
-# 5. Export back out to a physical scientific .nc file on your Zorin OS system
-print(f"Writing output file to disk: {output_interp_file}...")
+# Export back out to a physical scientific .nc file
+print(f"Writing output file to disk : {output_interp_file}...")
 ds_intermediate.to_netcdf(output_interp_file, engine="netcdf4")
 
 
@@ -55,7 +53,7 @@ encoding_settings = {
     }
 }
 
-print(f"Writing fully georeferenced NetCDF file to: {output_interp_file}...")
+print(f"Writing fully georeferenced NetCDF file to : {output_interp_file}...")
 
 # Save the dataset with our custom encoding map
 ds_intermediate.to_netcdf(

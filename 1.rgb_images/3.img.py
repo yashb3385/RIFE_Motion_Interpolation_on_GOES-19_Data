@@ -47,12 +47,12 @@ print("Synthesizing true green channel...")
 G_norm = 0.45 * R_norm + 0.10 * G_veg_norm + 0.45 * B_norm
 G_norm = np.clip(G_norm, 0.0, 1.0)
 
-# 6. Stack the matrices together into a single RGB image array
+# Stack the matrices together into a single RGB image array
 # Shape transforms from individual (5424, 5424) arrays into one (5424, 5424, 3) array
 print("Stacking channels into final RGB matrix...")
 rgb_image = np.stack([R_norm, G_norm, B_norm], axis=-1)
 
-# 7. Save the final multi-color composite image
+# Save the final multi-color composite image
 print(f"Saving multi-color image to {output_image_path}...")
 plt.imsave(output_image_path, rgb_image)
 

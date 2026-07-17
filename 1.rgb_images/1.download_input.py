@@ -8,7 +8,6 @@ def download_goes_file(year, day, hour, minute, channel, download_dir):
     min_str = f"{minute:02d}"
     ch_str = f"M6C{channel:02d}" # GOES-19 uses Mode 6
     
-    # Construct the folder path
     prefix = f"ABI-L1b-RadF/{year}/{day_str}/{hr_str}/"
     url = f"https://noaa-goes19.s3.amazonaws.com/?list-type=2&prefix={prefix}"
     
@@ -27,8 +26,7 @@ def download_goes_file(year, day, hour, minute, channel, download_dir):
     for f in files:
         os.makedirs(download_dir, exist_ok=True)
         filename = os.path.basename(f.text)
-        # Create the exact string pattern to look for in the filename
-        # Pattern: sYYYYJJJHHMM (e.g., s20251401200)
+        # Pattern : sYYYYJJJHHMM (e.g., s20251401200)
         time_pattern = f"s{year}{day_str}{hr_str}{min_str}"
         
         # Check : Does filename have our channel AND our time pattern?

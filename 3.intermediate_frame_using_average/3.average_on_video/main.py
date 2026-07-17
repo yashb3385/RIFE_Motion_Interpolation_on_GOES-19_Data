@@ -3,11 +3,7 @@ import shutil
 import subprocess
 import cv2
 import numpy as np
-from tqdm import tqdm  # Imported for the progress bars
-
-# ==========================================
-# PROVIDED FUNCTIONS
-# ==========================================
+from tqdm import tqdm  
 
 def png_intermediate(png1_path, png2_path, png_inter_path):
     img1 = cv2.imread(png1_path, cv2.IMREAD_UNCHANGED)
@@ -21,13 +17,10 @@ def png_intermediate(png1_path, png2_path, png_inter_path):
     average_16 = (img1_16 + img2_16) // 2
     final_img = average_16.astype(np.uint8)
     cv2.imwrite(png_inter_path, final_img)
-    # Spammy print statement removed from here
-
 
 def video_to_img(video_path, target_dir):
     os.makedirs(target_dir, exist_ok=True)
     ffmpeg_cmd = f'ffmpeg -y -i "{video_path}" -vsync 0 "{target_dir}/%04d.png"'
-    # Added a flag to quiet down FFmpeg terminal outputs
     ffmpeg_cmd += " -loglevel error" 
     subprocess.run(ffmpeg_cmd, shell=True)
 
@@ -50,7 +43,6 @@ def img_to_video(img_folder_path, output_video_path, fps):
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         video_writer = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
-        # --- UPDATED WITH TQDM LOADING BAR ---
         for img_name in tqdm(images, desc="Compiling Video Streams", unit="frame"):
             img_path = os.path.join(img_folder_path, img_name)
             frame = cv2.imread(img_path)
@@ -59,11 +51,6 @@ def img_to_video(img_folder_path, output_video_path, fps):
         video_writer.release()
         cv2.destroyAllWindows()
         print(f"Success! Video stream compiled: {output_video_path}")
-
-
-# ==========================================
-# NEW AUDIO MUXING FUNCTION
-# ==========================================
 
 def merge_audio(video_sans_audio, audio_source, final_output):
     """
@@ -77,13 +64,7 @@ def merge_audio(video_sans_audio, audio_source, final_output):
     subprocess.run(ffmpeg_cmd, shell=True)
     print(f"Success! Final audio-mapped video saved as: {final_output}")
 
-
-# ==========================================
-# AUTOMATION PIPELINE
-# ==========================================
-
 if __name__ == "__main__":
-    # Define Path Constraints
     video_input = "input/15fps.mp4"
     processing_dir = "processing"
     original_dir = "processing/original"
@@ -95,20 +76,19 @@ if __name__ == "__main__":
     # --------------------------------------------------
     # Step 1: Extract frames from the original video
     # --------------------------------------------------
-    print(">>> Step 1: Extracting frames from video...")
+    print(">>> Step 1 : Extracting frames from video...")
     video_to_img(video_input, original_dir)
 
     # --------------------------------------------------
     # Step 2: Interleave original and intermediate frames 
     # --------------------------------------------------
-    print("\n>>> Step 2: Generating intermediate mathematical average frames...")
+    print("\n>>> Step 2 : Generating intermediate mathematical average frames...")
     os.makedirs(interpolated_dir, exist_ok=True)
     
     orig_files = [f for f in os.listdir(original_dir) if f.endswith(".png")]
     orig_files.sort()
     num_frames = len(orig_files)
 
-    # --- UPDATED WITH TQDM LOADING BAR ---
     for i in tqdm(range(num_frames - 1), desc="Interpolating Frames", unit="pair"):
         img1_path = os.path.join(original_dir, orig_files[i])
         img2_path = os.path.join(original_dir, orig_files[i+1])
@@ -131,7 +111,7 @@ if __name__ == "__main__":
     # --------------------------------------------------
     # Step 3: Render processed frames into video & inject audio
     # --------------------------------------------------
-    print("\n>>> Step 3: Compiling sequential frame assets into video...")
+    print("\n>>> Step 3 : Compiling sequential frame assets into video...")
     img_to_video(interpolated_dir, temp_video_output, 30)
     
     merge_audio(temp_video_output, video_input, final_video_output)
@@ -142,7 +122,7 @@ if __name__ == "__main__":
     # --------------------------------------------------
     # Step 4: System folder sanitation cleanup
     # --------------------------------------------------
-    print("\n>>> Step 4: Deleting workspace directory environment setup...")
+    print("\n>>> Step 4 : Deleting workspace directory environment setup...")
     if os.path.exists(processing_dir):
         shutil.rmtree(processing_dir)
         print("Processing environment successfully cleaned!")
