@@ -83,7 +83,7 @@ channels_list = [int(i) for i in channels.split()]
 for i in channels_list:
     download_goes_files(
         start_dt=datetime(2025, 1, 1, 0, 0), # Year, Month, Day, Hour, Minute
-        end_dt=datetime(2025, 1, 1, 1, 40), 
+        end_dt=datetime(2025, 1, 1, 0, 40), 
         channel=i, 
         base_download_dir="." 
     )

@@ -4,7 +4,7 @@
 ---
 Satellite images from geostationary satellites are often captured at fixed intervals (e.g., every 30 minutes for INSAT, or every 10 minutes for Himawari/GOES). This restricts near real-time monitoring of dynamic and fast-moving phenomena such as cyclones, thunderstorms, floods, and rapid land changes. Traditional optical-flow temporal interpolation methods are limited, often yielding incorrect results like blurred images and artifacts, failing to capture non-linear cloud dynamics. 
 
-![](4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/demo/SAT.jpg)
+![](ECCV2022-RIFE/demo/SAT.jpg)
 
 This project develops and uses an AI/ML-based Optical Flow frame interpolation technique to generate synthetic intermediate frames between consecutive satellite images. This effectively enhances temporal resolution (e.g., from 10 minutes to 5 or 2.5 minutes), enabling more frequent observations without requiring additional satellite resources.
 ## Dataset Links
@@ -69,8 +69,19 @@ This project utilizes satellite imagery obtained from the ***NOAA GOES-19*** AWS
 
 | [Original](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps_s20250010000_e20250012350.mp4)<br>![original_RGB_2fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps.gif) | [8X Interpolation](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps_s20250010000_e20250012350.mp4)<br>![final_RGB_2X_4fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps.gif) |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+#### ERROR BENCHMARK : TRUE VS PREDICTED SATELLITE FRAME
 
-
+```bash
+===========================================================
+             SATELLITE NETCDF ERROR DASHBOARD        
+            (Time : 20250010120, Channel : 13)     
+===========================================================
+      Mean Squared Error    (MSE)    :   0.004341
+      Peak Signal-to-Noise  (PSNR)   :   23.62 dB
+      Structural Sim        (SSIM)   :   0.9703
+      Feature Similarity    (FSIM)   :   0.9837
+===========================================================
+```
 ## 📂 Repository Usage Guide
 ---
 *   **Execution Order** → All Python scripts are prefixed with a number (e.g., `1.xyz.py`, `2.xyz.py`). It will be preferable to execute them in ascending numerical order.

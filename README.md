@@ -69,8 +69,19 @@ This project utilizes satellite imagery obtained from the ***NOAA GOES-19*** AWS
 
 | [Original](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps_s20250010000_e20250012350.mp4)<br>![original_RGB_2fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/original_RGB_2fps.gif) | [8X Interpolation](https://github.com/yashb3385/Data_Samples/raw/refs/heads/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps_s20250010000_e20250012350.mp4)<br>![final_RGB_2X_4fps](https://raw.githubusercontent.com/yashb3385/Data_Samples/main/GOES-19_Interpolation_Result/RGB/final_RGB_8X_16fps.gif) |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+#### ERROR BENCHMARK : TRUE VS PREDICTED SATELLITE FRAME
 
-
+```bash
+===========================================================
+             SATELLITE NETCDF ERROR DASHBOARD        
+            (Time : 20250010120, Channel : 13)     
+===========================================================
+      Mean Squared Error    (MSE)    :   0.004341
+      Peak Signal-to-Noise  (PSNR)   :   23.62 dB
+      Structural Sim        (SSIM)   :   0.9703
+      Feature Similarity    (FSIM)   :   0.9837
+===========================================================
+```
 ## 📂 Repository Usage Guide
 ---
 *   **Execution Order** → All Python scripts are prefixed with a number (e.g., `1.xyz.py`, `2.xyz.py`). It will be preferable to execute them in ascending numerical order.
@@ -146,3 +157,45 @@ python 4.delete_requirements.py
 ```
 
 > ***Note*** → Don't worry about executing this file, this won't delete anything from your main python. Only **Python 3.10** will be deleted alongside its **packages**.
+## 📊 Error Analysis & Model Evaluation (5.Error_Analysis_RIFE)
+---
+This module provides a scientific framework to evaluate RIFE motion interpolation against real GOES-19 satellite ground truth data. It safely processes large telemetry matrices to compute spatial and structural metrics.
+### Evaluation Metrics
+The pipeline benchmarks the generated intermediate frame using four core metrics:
+
+*   **Mean Squared Error (MSE)** → Tracks average squared variance of radiance values.
+<br>
+
+*   **Peak Signal-to-Noise Ratio (PSNR)** → Measures signal degradation and artifact levels in dB.
+<br>
+
+*   **Structural Similarity Index (SSIM)** → Evaluates spatial textures and cloud boundaries.
+<br>
+
+*   **Feature Similarity Index (FSIM)** → A custom Python-optimized implementation tracking high-frequency edge retention.
+### Step-by-Step Workflow
+Run these scripts sequentially within the `5.Error_Analysis_RIFE` folder:
+#### 1. Download Test Frames :
+```bash
+python 1.download.py
+```
+
+_Downloads two consecutive `.nc` frames into `/input` and their true mid-point intermediate `.nc` file into `/intermediate`._
+#### 2. Generate AI Prediction :
+```bash
+python 2.intermediate_will.py
+```
+ 
+ _Runs RIFE's optical-flow tracking to generate the predicted midpoint frame._
+#### 3. Compute Metrics & Error Plots :
+```bash
+python 3.compare.py
+```
+
+_Prints the validation dashboard to the console and exports a diagnostic error map (`C{i:02d}_error_analysis.png`)._
+#### 4. Directory Cleanup :
+```bash
+python 3.delete_input_intermediate.py
+```
+
+*Safely clears all processed and raw `.nc` matrix files from the active working directories.*
