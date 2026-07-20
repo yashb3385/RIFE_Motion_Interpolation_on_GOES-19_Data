@@ -1,21 +1,18 @@
-import subprocess
-import os
-import shutil
-import sys
 
-def ask_y_n(ques):
-    while True:
-        ans = input(ques).strip().lower()
-        if ans in ['y', 'n']:
-            break 
-        print("Invalid input! Please enter exactly 'y' or 'n'.\n")
-    return ans
+import sys
+from utils.ask import ask_y_n
 
 ready = ask_y_n("\nAre you sure to delete all requirements [y/n] : ")
 
 if ready != 'y':
     print("\nExiting the program. See you soon!\n\n")
     sys.exit()
+
+###########################################################################################
+
+import subprocess
+import os
+import shutil
 
 print("\n\n")
 
@@ -30,6 +27,7 @@ py310 = os.path.join(python310, "py310.exe")
 pip = os.path.join(python310, "Scripts", "pip.exe")
 pip3 = os.path.join(python310, "Scripts", "pip3.exe")
 pip310 = os.path.join(python310, "Scripts", "pip310.exe")
+
 ###########################################################################################
 
 print("Searching/Installing Python 3.10...")
@@ -53,6 +51,7 @@ try:
 except FileNotFoundError:
     print("\n[Warning]: Could not modify files. Python 3.10 directory structure wasn't found.")
     print("Ensure the installation path is exactly correct.")
+
 ###########################################################################################
 
 subprocess.run("pip310 freeze > remove_all_packages.txt", shell=True, cwd=user_profile)
@@ -63,6 +62,7 @@ if os.path.exists(requirements):
     os.remove(requirements)
 
 ################################################################################################
+
 print("\nProceeding to clean py310......")
 try:
     os.remove(py310)

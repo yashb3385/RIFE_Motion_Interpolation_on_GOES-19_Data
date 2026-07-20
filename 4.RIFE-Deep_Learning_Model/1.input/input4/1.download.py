@@ -4,9 +4,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
 def download_goes_files(start_dt, end_dt, channel, base_download_dir):
-    """
-    Downloads GOES files. Overwrites existing files if they exist.
-    """
+
     base_url = "https://noaa-goes19.s3.amazonaws.com"
     channel_str = f"M6C{channel:02d}"
     
@@ -58,7 +56,7 @@ def download_goes_files(start_dt, end_dt, channel, base_download_dir):
                     
                     # Logic removed: no 'skip if exists' check. 
                     # It will now overwrite automatically.
-                    print(f"\n  -> Downloading (Overwriting if exists): {filename}")
+                    print(f"\n  -> Downloading (Overwriting if exists) : {filename}")
                     file_url = f"{base_url}/{key}"
                     
                     with requests.get(file_url, stream=True) as r:
@@ -85,7 +83,7 @@ channels_list = [int(i) for i in channels.split()]
 for i in channels_list:
     download_goes_files(
         start_dt=datetime(2025, 1, 1, 0, 0), # Year, Month, Day, Hour, Minute
-        end_dt=datetime(2025, 1, 1, 0, 40), 
+        end_dt=datetime(2025, 1, 1, 1, 40), 
         channel=i, 
         base_download_dir="." 
     )
