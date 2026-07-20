@@ -24,7 +24,7 @@ def plot_spatial_errors(real_arr, interp_arr, mse, ssim, channel_no, time):
     
     plt.tight_layout()
 
-    plot_name = f"4.C{int(channel_no):02d}_error_{time}.png"
+    plot_name = f"C{int(channel_no):02d}_error_{time}.png"
 
     plt.savefig(plot_name, dpi=300)
     print(f"[INFO] : Error visualization saved as {plot_name}\n")
