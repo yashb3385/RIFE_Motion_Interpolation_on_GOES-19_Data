@@ -62,10 +62,10 @@ def calculate_nc_metrics(real_nc_path, interpolated_nc_path, chnl, time):
     print("             SATELLITE NETCDF ERROR DASHBOARD        ")
     print(f"                   (Time : {time})     ")
     print("="*59)
-    print(f"  Mean Squared Error    (MSE)    :   {mse_val:.6f}")
-    print(f"  Peak Signal-to-Noise  (PSNR)   :   {psnr_val:.2f} dB")
-    print(f"  Structural Sim        (SSIM)   :   {ssim_val:.4f}")
-    print(f"  Feature Similarity    (FSIM)   :   {fsim_val:.4f}")
+    print(f"     Mean Squared Error    (MSE)    :   {mse_val:.6f}")
+    print(f"     Peak Signal-to-Noise  (PSNR)   :   {psnr_val:.2f} dB")
+    print(f"     Structural Sim        (SSIM)   :   {ssim_val:.4f}")
+    print(f"     Feature Similarity    (FSIM)   :   {fsim_val:.4f}")
     print("="*59 + "\n")
 
     # Export diagnostic visualization
