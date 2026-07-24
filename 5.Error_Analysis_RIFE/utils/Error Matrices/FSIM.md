@@ -1,3 +1,4 @@
+# FSIM
 **FSIM** (Feature Similarity Index) is an advanced full-reference ***Image Quality Assessment (IQA)*** metric designed to evaluate the visual quality of an image by comparing it to a reference image. It was created to closely align with how the ***Human Visual System (HVS)*** perceives image quality degradation.
 # What It Actually Does
 Unlike older metrics like MSE (Mean Squared Error) or PSNR, which simply compare pixel-by-pixel differences, FSIM evaluates an image based on low-level human visual perception features. Specifically, it performs the following steps:
