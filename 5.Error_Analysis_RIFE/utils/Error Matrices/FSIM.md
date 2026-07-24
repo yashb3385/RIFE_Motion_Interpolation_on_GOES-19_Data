@@ -14,9 +14,9 @@ Unlike older metrics like MSE (Mean Squared Error) or PSNR, which simply compare
 ## 4. Outputs a Final Score
 - It produces a single scalar score (typically between 0 and 1, where 1 indicates identical quality) representing the perceptual similarity between the two images.
 # Calculation Method Flow Chart
-![[FSIM.png]]
+![](FSIM.png)
 
-You can download the calculation chart in image format here and in canvas format here.
+You can view the calculation chart in image format [here](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/FSIM.png).
 ## Formula
 $$\Huge\Huge{FSIM=\frac{\sum\limits_{X\in\ohm}S_L(X).PC_m(X)}{\sum\limits_{X\in\ohm}PC_m(X)}}$$
 ### Frequency Domain Transfer Function of *2D LOG-Gabor Filter*
