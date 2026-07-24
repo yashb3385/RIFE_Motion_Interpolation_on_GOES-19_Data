@@ -162,11 +162,12 @@ python 4.delete_requirements.py
 This module provides a scientific framework to evaluate RIFE motion interpolation against real GOES-19 satellite ground truth data. It safely processes large telemetry matrices to compute spatial and structural metrics.
 ### Evaluation Metrics
 The pipeline benchmarks the generated intermediate frame using four core metrics:
-
-*   **Mean Squared Error (MSE)** → Tracks average squared variance of radiance values.
 <br>
 
-*   **Peak Signal-to-Noise Ratio (PSNR)** → Measures signal degradation and artifact levels in dB.
+*   [**Mean Squared Error (MSE)**](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/MSE%20%26%20PSNR.md) → Tracks average squared variance of radiance values.
+<br>
+
+*   [**Peak Signal-to-Noise Ratio (PSNR)**](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/MSE%20%26%20PSNR.md) → Measures signal degradation and artifact levels in dB.
 <br>
 
 *   [**Structural Similarity Index (SSIM)**](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/SSIM.md) → Evaluates spatial textures and cloud boundaries.
