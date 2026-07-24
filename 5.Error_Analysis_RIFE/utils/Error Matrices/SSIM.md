@@ -12,8 +12,6 @@ It evaluates perceptual quality by comparing three key visual components between
 3. ***Structure ( $s$ )*** ➔ Compares the normalized covariance of the two images to see if the structural patterns and spatial arrangements of objects match.
 # Calculation Method Flow Chart
 ![](SSIM.png)
-
-You can view the calculation chart in image format [here](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/SSIM.png).
 ## Formula
 $$\huge{SSIM(X,Y)=l(X,Y).c(X,Y).s(X,Y)}$$
 ### 2-D Gaussian Function / Gaussian Kernel
