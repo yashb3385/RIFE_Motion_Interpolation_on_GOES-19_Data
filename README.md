@@ -169,10 +169,10 @@ The pipeline benchmarks the generated intermediate frame using four core metrics
 *   **Peak Signal-to-Noise Ratio (PSNR)** → Measures signal degradation and artifact levels in dB.
 <br>
 
-*   **Structural Similarity Index (SSIM)** → Evaluates spatial textures and cloud boundaries.
+*   [**Structural Similarity Index (SSIM)**](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/SSIM.md) → Evaluates spatial textures and cloud boundaries.
 <br>
 
-*   **Feature Similarity Index (FSIM)** → A custom Python-optimized implementation tracking high-frequency edge retention.
+*   [**Feature Similarity Index (FSIM)**](https://github.com/yashb3385/RIFE_Motion_Interpolation_on_GOES-19_Data/blob/main/5.Error_Analysis_RIFE/utils/Error%20Matrices/FSIM.md) → A custom Python-optimized implementation tracking high-frequency edge retention.
 ### Step-by-Step Workflow
 Run these scripts sequentially within the `5.Error_Analysis_RIFE` folder:
 #### 1. Download Test Frames :
