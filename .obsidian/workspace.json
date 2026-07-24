@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5.Error_Analysis_RIFE/utils/Error Matrices/FSIM.md",
-                "mode": "preview",
+                "file": "5.Error_Analysis_RIFE/utils/Error Matrices/SSIM.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FSIM"
+              "title": "SSIM"
             }
           },
           {
@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "5.Error_Analysis_RIFE/utils/Error Matrices/SSIM.md",
-                "mode": "preview",
+                "file": "5.Error_Analysis_RIFE/utils/Error Matrices/MSE & PSNR.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SSIM"
+              "title": "MSE & PSNR"
             }
           }
         ],
@@ -226,9 +226,10 @@
   },
   "active": "4f476a6ce95e0116",
   "lastOpenFiles": [
+    "5.Error_Analysis_RIFE/utils/Error Matrices/SSIM.md",
+    "5.Error_Analysis_RIFE/utils/Error Matrices/MSE & PSNR.md",
     "5.Error_Analysis_RIFE/utils/Error Matrices/FSIM.md",
     "README.md",
-    "5.Error_Analysis_RIFE/utils/Error Matrices/SSIM.md",
     "4.RIFE-Deep_Learning_Model/README.md",
     "5.Error_Analysis_RIFE/intermediate/C13/OR_ABI-L1b-RadF-M6C13_G19_s20250010120205_e20250010129525_c20250010129586_inter.nc",
     "4.RIFE-Deep_Learning_Model/ECCV2022-RIFE/vid_out/0000001.png",
@@ -271,7 +272,6 @@
     "14. Sorting Algorithms/DS14.4 Quick Sort/DS14.4.0-Quick Sort.md",
     "14. Sorting Algorithms/DS14.3 Selection Sort/DS14.3.0-Selection Sort.md",
     "14. Sorting Algorithms/DS14.2 Insertion Sort/DS14.2.0-Insertion Sort.md",
-    "14. Sorting Algorithms/DS14.1 Bubble Sort/DS14.1.0-Bubble Sort.md",
     "Note Taking Methods/My Canva.canvas",
     "Untitled.canvas"
   ]
