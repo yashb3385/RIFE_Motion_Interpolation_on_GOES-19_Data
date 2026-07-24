@@ -1,3 +1,4 @@
+# SSIM
 **SSIM** (Structural Similarity Index) is a widely used full-reference ***Image Quality Assessment (IQA)*** metric designed to measure the perceived quality of digital images and videos.
 # What It Actually Does
 
